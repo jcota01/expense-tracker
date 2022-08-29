@@ -4,16 +4,18 @@
   <head>
     <title>{{title}}</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
   </head>
 
   <body>
-  <div class="navBar row" id="mainNavBar">
-    <a href="/">Home</a>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
-  </div>
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">Home</a>
+      <a class="navbar-item" href="/login">Login</a>
+      <a class="navbar-item" href="/register">Register</a>
+    </div>
+  </nav>
     {% block content %}{% endblock %}
   </body>
 
