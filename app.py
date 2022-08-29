@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 
 
@@ -11,6 +12,7 @@ def index():
 
 if __name__ == '__main__':
     my_host = "127.0.0.1"
+    app.secret_key = os.urandom(16)
 
     # BLUEPRINTS
     from users.views import users_blueprint
