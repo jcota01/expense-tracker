@@ -11,4 +11,10 @@ def index():
 
 if __name__ == '__main__':
     my_host = "127.0.0.1"
+
+    # BLUEPRINTS
+    from users.views import users_blueprint
+
+    app.register_blueprint(users_blueprint)
+
     app.run(host=my_host, debug=True)
