@@ -10,6 +10,7 @@ class User(db.Model):
     password = db.Column(db.String(100), nullable=False)
 
     expenses = db.relationship('Expense')
+    income = db.relationship('Income')
 
     def __init__(self, username, password):
         self.username = username
@@ -32,6 +33,20 @@ class Expense(db.Model):
         self.price = price
         self.category = category
         self.created = datetime.now()
+
+
+class Income(db.Model):
+    __tablename__ = 'income'
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, db.ForeignKey(User.username))
+    income = db.Column(db.Float, nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
+
+    def __init__(self, username, income):
+        self.username = username
+        self.income = income
+        self.date = datetime.now()
 
 
 def init_db():
