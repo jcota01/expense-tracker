@@ -1,0 +1,51 @@
+html{
+    background-color: #a2d2ff;
+}
+
+.container{
+    margin-top: 30px;
+}
+
+.level{
+    background-color: #bde0fe;
+}
+
+.box{
+    padding: 0!important;
+}
+
+.body-section{
+    height: 400px;
+}
+
+.level-item{
+    font-size: 1.75em;
+    font-weight: 600;
+}
+
+.level-left{
+    padding: 10px 40px;
+}
+
+.level-right{
+    padding: 10px 40px;
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
+}
+ .level-right:hover{
+     cursor: pointer;
+ }
+
+ .container{
+     max-width: 1600px!important;
+ }
+
+ .navbar{
+     background-color: #65b4e7;
+     padding: 10px;
+     font-size: 1.5em;
+ }
+
+ .navbar-item{
+     color: white;
+     font-weight: 600;
+ }

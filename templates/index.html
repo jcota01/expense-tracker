@@ -25,31 +25,56 @@
               },
             });
         }
+
+        function dropdownClicked(spanId, option){
+            document.getElementById(spanId).innerText = option.innerText;
+            for (c of option.parentNode.children){
+                c.classList.remove('is-active');
+            }
+            option.classList.add('is-active');
+        }
     </script>
-    <div class="container" id="container">
-        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-        <div class="box">
-            <form method="POST">
-                <div class="field">
-                    {{ form.csrf_token() }}
-                    <div class="control">
-                        {{ form.title(class="input", placeholder="Title") }}
-                    </div>
+    <div class="container">
+        <div class="columns is-multiline">
+            <div class="column is-one-third">
+                <div class="box">
+                    <nav class="level">
+                        <div class="level-left">
+                            <div class="level-item">
+                                Income
+                            </div>
+                        </div>
+                        <div class="level-right">
+                            <div class="level-item">
+                                <div class="dropdown is-hoverable" id="dropdown1">
+                                  <div class="dropdown-trigger">
+                                    <div>
+                                      <span id="span1">2022</span>
+                                    </div>
+                                  </div>
+                                  <div class="dropdown-menu" id="dropdown-menu-1" role="menu">
+                                    <div class="dropdown-content">
+                                      <a onclick="dropdownClicked('span1', this)" class="dropdown-item">
+                                        2022
+                                      </a>
+                                      <a onclick="dropdownClicked('span1', this)"class="dropdown-item">
+                                        2021
+                                      </a>
+                                      <a onclick="dropdownClicked('span1', this)" class="dropdown-item">
+                                        2020
+                                      </a>
+                                      <a onclick="dropdownClicked('span1', this)" class="dropdown-item">
+                                        2019
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="body-section"></div>
                 </div>
-                <div class="field">
-                    <div class="control">
-                        {{ form.price(class="input", placeholder="Price") }}
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        {{ form.category(class="input", placeholder="Category") }}
-                    </div>
-                </div>
-                <div>
-                    {{ form.submit(class="button is-info is-centered") }}
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 {% endblock %}
